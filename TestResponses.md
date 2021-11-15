@@ -35,10 +35,15 @@ Each of these ad hoc exploratory methods generate further test cases beyond foll
 
 Question 2:
 
-| Test      | Test Name | Outcome     | Evidence |  Further notes/Exploratory findings |
+| Test Number     | Test Name | Outcome     | Evidence |  Further notes/Exploratory findings |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Test1     | Creating a profile using the "Register" option to ensure a profile is generated with the correctly submitted information       | Failed (Defect 1)      | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-1.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-2.png) | Email Validation is in place and working for correct name@dom.ain, password validation is also active for both presence and 6 digit length and matching, complexity is also present - more test cases needed for next run     |
-
+| Test 1     | Creating a profile using the "Register" option to ensure a profile is generated with the correctly submitted information       | Failed (Defect 1)      | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-1.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-2.png) | Email Validation is in place and working for correct name@dom.ain, password validation is also active for both presence and 6 digit length and matching, complexity is also present - more test cases needed for next run. Defect also confirmed from the registration option held on the "Log in" page |
+| Test 2      | Signing in using the "Log in" option to ensure the user profile can be accessed and is accurate | Blocked  | Test 1 failing prevents this form proceeding futher |  The ASP.NET login methods linked would need investigating in further test runs |
+| Test 3     | Following the "Find out more", "about" and "about us" options to ensure the link reaches the correct location with relevant information | Failed (Defect 2)     | Evidence |  Further notes/Exploratory findings |
+| Test 4     | Test Name | Outcome     | Evidence |  Further notes/Exploratory findings |
+| Test 5     | Test Name | Outcome     | Evidence |  Further notes/Exploratory findings |
+| Test 6     | Test Name | Outcome     | Evidence |  Further notes/Exploratory findings |
+| Test 7     | Test Name | Outcome     | Evidence |  Further notes/Exploratory findings |
 
 - Test 1  - Creating a profile using the "Register" option to ensure a profile is generated with the correctly submitted information - Failed (Defect 1)
 - Test 2 - Signing in using the "Log in" option to ensure the user profile can be accessed and is accurate
@@ -75,7 +80,9 @@ When I click submit
 Then the details are saved back into the SQL database
 And A confirmation email is sent
 
-Note: please see the error entry below:
+Note: 
+- Verified against the registration link inside the "Log in" page
+- Please see the error entry below:
 <details>
   <summary>Error text</summary>
   
