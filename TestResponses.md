@@ -40,8 +40,8 @@ Question 2:
 | Test 1     | Creating a profile using the "Register" option to ensure a profile is generated with the correctly submitted information       | Failed (Defect 1)      | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-1.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-2.png) | Email Validation is in place and working for correct name@dom.ain, password validation is also active for both presence and 6 digit length and matching, complexity is also present - more test cases needed for next run. Defect also confirmed from the registration option held on the "Log in" page |
 | Test 2      | Signing in using the "Log in" option to ensure the user profile can be accessed and is accurate | Blocked  | Test 1 failing prevents this form proceeding futher |  The ASP.NET login methods linked would need investigating in further test runs |
 | Test 3     | Following the "Find out more", "about" and "about us" options to ensure the link reaches the correct location with relevant information | Failed (Defect 2)     | ["About" link](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/About.png) ["About us" link](https://github.com/TMoore89/ENSEKTest/blob/1996dc4e9b6395895e420e9e1f055b2f5d7be8a6/Images/About%20us.png) ["Find out more" link](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/Find%20out%20more.png)|  An additional link appears on "About us" and "About". This can be followed and successfully loads this: [Image 1](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/About-About%20us%20link.png) |
-| Test 4     | Following the "Contact" option to ensure the link reaches the correct location and that all appropriate links work as expected | Failed - (Defect 3), (Defect 4), (Defect 5)    | Evidence |  Further notes/Exploratory findings |
-| Test 5     | Following the "home" option to ensure the link reaches the correct location and that all appropriate links work as expected | Outcome     | Evidence |  Further notes/Exploratory findings |
+| Test 4     | Following the "Contact" option to ensure the link reaches the correct location and that all appropriate links work as expected | Failed - (Defect 3)   | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/79a10c77cc4e479afcfb62834f624c33ab2a3318/Images/Contact.png) |  No further notes beyond the defect |
+| Test 5     | Following the "home" option to ensure the link reaches the correct location and that all appropriate links work as expected | Pass   | Evidence |  Further notes/Exploratory findings |
 | Test 6     | Selecting "Buy some energy" and following the process through to completion to ensure I am able to place an order | Outcome     | Evidence |  Further notes/Exploratory findings |
 | Test 7     | Selecting "Sell some energy" and following the process through to completion to ensure I am able to create a sale | Outcome     | Evidence |  Further notes/Exploratory findings |
 
@@ -116,9 +116,34 @@ Actual Behaviour:
 - Find out more directs to a different location
 
 Acceptance Criteria:
-Given I have Followed any of the information links ("About", "About us" and "Find out more")
+Given I have followed any of the information links ("About", "About us" and "Find out more")
 When I peruse the imformation presented
 Then the same information is presented for all 3 pages
+
+Note: 
+- If there are further leaps to the information page as there are currently for About and About us, then this should also function and be identical
+  
+Defect 3:
+Description:
+Opening the contact screen presents a misspelt "Erorr" image
+
+User Story: As a prospective or existing ENSEK customer I would like to be able to contact the company from the contacts page so that I may raise any relevant queries
+
+Reproduction Steps:
+- Open the homepage
+- Click on the contacts page
+- Peruse the opened page
+
+Expected Behaviour:
+- various contact methods are presentend and accessible
+
+Actual Behaviour:
+- An image saying "Erorr" is presented
+
+Acceptance Criteria:
+Given I have navigated to the contact page
+When I peruse the screen presented
+Then A selection of communication methods are available
 
 Note: 
 - If there are further leaps to the information page as there are currently for About and About us, then this should also function and be identical.
