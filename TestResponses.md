@@ -1,6 +1,6 @@
 Question 1:
 
-There are a number of testing methodologies that could be used here, however given the lack of prior access to the code, expected behaviour or acceptance criteria, this black box testing is best suited to user stories to drive functional testing. 
+My test plan would be to investigate usability of the site from the perspective of a potential or current customer, in order to ensure a smooth customer experience and to both minimise and highlight potential risks to the user experience. There are a number of testing methodologies that could be used here, however given the lack of prior access to the code, expected behaviour or acceptance criteria, this black box testing is best suited to user stories to drive functional testing. 
 
 Some experienced based testing is also appropriate however, utilising knowledge of areas that can cause vulnerabilities or increase chance of risk to the end product.
 
@@ -29,6 +29,7 @@ Regards the experience based testing, attacking known areas that can cause user 
 - Validation of credentials 
 - Retaining details between page and accounts
 - Ensuring the page is correctly navigatable
+- Checking the subdomains for potential phishing vulnerabilities
 
 Each of these ad hoc exploratory methods generate further test cases beyond following the initial scope of the investigation so it would be harder to outline in detail beforehand beyond listing initial concerns and areas to target.
 
