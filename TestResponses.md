@@ -49,7 +49,7 @@ Defect 1:
 Description:
 The register button does not complete the command and fails to communicate to SQL, presenting the user with an error dump
 
-User Story: As a prospective ENSEK customer I would like to be able to create a new account so that I may proceed to buy and sell energy and review my profile
+User Story: As a prospective customer I would like to be able to create a new account so that I may proceed to buy and sell energy and review my profile
 
 Reproduction Steps:
 - Open the homepage
@@ -90,7 +90,7 @@ Defect 2:
 Description:
 The various links to read more information about the company do not all direct to the same location
 
-User Story: As a prospective ENSEK customer I would like to be able to research and find out consistent information about the company from any applicable link so that I may find out more about ENSEK and make an educated decision on my involvement with them
+User Story: As a prospective customer I would like to be able to research and find out consistent information about the company from any applicable link so that I may find out more about ENSEK and make an educated decision on my involvement with them
 
 Reproduction Steps:
 - Open the homepage
@@ -141,7 +141,7 @@ Defect 4:
 Description:
 The header for the "Contact us" page simply reads "Contact."
 
-User Story: As a prospective or existing ENSEK customer I would like to be able to correctly identify the page I was browsing from the header so that I may easily navigate the site and not be presented with the wrong information
+User Story: As a prospective or existing customer I would like to be able to correctly identify the page I was browsing from the header so that I may easily navigate the site and not be presented with the wrong information
 
 Reproduction Steps:
 - Open the homepage
@@ -183,9 +183,9 @@ Then the measurement is in cost per litre
 
 Defect 6:
 Description:
-The current offer has a different amount between the image and text
+The current offer has a different amount of discount between the image and text
 
-User Story: As a customer purhcasing energy I would like to be able to have the correct percentage discount in both image and text so that I know what I will be spending and cna plan accordingly
+User Story: As a customer purhcasing energy I would like to be able to have the correct percentage discount in both image and text so that I know what I will be spending and can plan accordingly
   
 Reproduction Steps:
 - Open the homepage
@@ -236,38 +236,76 @@ User Story: As a customer purhcasing energy I would like to be presented with a 
   
 Reproduction Steps:
 - Open the homepage
-- Click on the contacts page
-- Peruse the opened page
+- Sign in as a valid user
+- Return to the homepage
+- Click on the buy energy page
+- Enter a valid amount of energy to purchase
+- Select purchase
 
 Expected Behaviour:
-- The header for the page correctly displays "Contact us"
+- A subtotal with breakdown is provided with an order confirmation
 
 Actual Behaviour:
-- The header for the page incorrectly displays "Contact."
+- The order is placed and immediately processed
 
 Acceptance Criteria:
-Given I have navigated to the contact page
-When I peruse the screen presented
-Then the header reads "Contact us"
+Given I have entered an amount of energy to purchase
+And I am signed in as a valid user
+When I submit my purchase request
+Then I am presented with a subtotal screen with breakdown
+And the values are correct
+And there is a button to confirm
   
-Defect 5:
+Given I have submitted a purchase
+And I am signed in as a valid user
+And I have checked the subtotal
+When I click on confirm
+Then the order is completed
+And an email is generated confirming the order
+  
+Defect 9:
 Description:
-The header for the "Contact us" page simply reads "Contact."
+There is no requirement for an account holder to be signed in to make a purchase
 
-User Story: As a prospective or existing ENSEK customer I would like to be able to correctly identify the page I was irom the header so that I may easily navigate the site and not be presented with the wrong information
+User Story: As a energy supplier I would like to ensure that all potential purchases are by a user with a valid account so that I can ensure it's delivery and billing is correct
 
 Reproduction Steps:
 - Open the homepage
-- Click on the contacts page
-- Peruse the opened page
+- Click on the buy energy page
+- Enter a valid amount of energy to purchase
+- Select purchase
 
 Expected Behaviour:
-- The header for the page correctly displays "Contact us"
+- The submission is failed and the user is presented with a log in screen
 
 Actual Behaviour:
-- The header for the page incorrectly displays "Contact."
+- The submission continues 
 
 Acceptance Criteria:
-Given I have navigated to the contact page
+Given I have entered an amount of energy to purchase
+And I am not signed in as a valid user
+When I submit my purchase request
+Then I am presented with a sign in request
+  
+Defect 10:
+Description:
+The reset button and message regards using it for testing are not to be included in a customer facing site
+
+User Story: As a potential or current customer I would like to ensure I don't encounter any developer tools and debugging artifacts that I can be sure that I am entering a valid order that will not be used as test data or fail to complete
+
+Reproduction Steps:
+- Open the homepage
+- Click on the buy energy page
+- Peruse the page
+
+Expected Behaviour:
+- There are no development tools or debug artifacts
+
+Actual Behaviour:
+- There is a reset button with a caption that it is intended for test purposes
+
+Acceptance Criteria:
+Given I have navigated to the buy energy page
 When I peruse the screen presented
-Then the header reads "Contact us"
+There are no references to using the on screen tools for test purposes
+And the reset button is labelled "reset amounts"
