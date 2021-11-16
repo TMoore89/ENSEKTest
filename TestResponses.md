@@ -1,4 +1,4 @@
-Question 1:
+# Question 1:
 
 My test plan would be to investigate usability of the site from the perspective of a potential or current customer, in order to ensure a smooth customer experience and to both minimise and highlight potential risks to the user experience. In particular I want to ensure the user is able to create a profile, validate their details, then both purchase and sell some volume of energy. There are a number of testing methodologies that could be used here, however given the lack of prior access to the code, expected behaviour or acceptance criteria, this black box testing is best suited to user stories to drive functional testing. 
 
@@ -17,7 +17,7 @@ With that in mind, I would outline some key user scenarios:
 Given more time these could be expanded out to bespoke test cases each, such as:
 
 Step 1 - Open page - Register button is available
-Step 2 - Register button is clicked - The page continues to the create acccount page
+Step 2 - Register button is clicked - The page continues to the create account page
 Step 3 - Valid user information is inserted into all fields - The fields all validate and allow entry
 Step 4 - Data is submitted via "Register" - The screen confirms submission and an email is received confirming details
 Step 5 - Email is received - Details within the email are correct and a confirmation link is provided
@@ -25,27 +25,30 @@ Step 6 - Confirmation link is followed - Web page opens confirming registration 
 
 These can then be used as a basis to expand further and cover negative tests to run alongside the positive tests.
 
-Regards the experience based testing, attacking known areas that can cause user difficulties such as:
+Regards the experience-based testing, attacking known areas that can cause user difficulties such as:
 - Validation of credentials 
 - Retaining details between page and accounts
-- Ensuring the page is correctly navigatable
+- Ensuring the page is correctly navigable
 - Checking the subdomains for potential phishing vulnerabilities
 
 Each of these ad hoc exploratory methods generate further test cases beyond following the initial scope of the investigation so it would be harder to outline in detail beforehand beyond listing initial concerns and areas to target.
 
-Question 2:
+# Question 2:
+## Test execution:
 
 | Test Number     | Test Name | Outcome     | Evidence |  Further notes/Exploratory findings |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | Test 1     | Creating a profile using the "Register" option to ensure a profile is generated with the correctly submitted information       | Failed (Defect 1)      | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-1.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-2.png) | Email Validation is in place and working for correct name@dom.ain, password validation is also active for both presence and 6 digit length and matching, complexity is also present - more test cases needed for next run. Defect also confirmed from the registration option held on the "Log in" page |
-| Test 2      | Signing in using the "Log in" option to ensure the user profile can be accessed and is accurate | Blocked  | Test 1 failing prevents this form proceeding futher |  The ASP.NET login methods linked would need investigating in further test runs |
+| Test 2      | Signing in using the "Log in" option to ensure the user profile can be accessed and is accurate | Blocked  | Test 1 failing prevents this from proceeding further |  The ASP.NET login methods linked would need investigating in further test runs |
 | Test 3     | Following the "Find out more", "about" and "about us" options to ensure the link reaches the correct location with relevant information | Failed (Defect 2)     | ["About" link](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/About.png) ["About us" link](https://github.com/TMoore89/ENSEKTest/blob/1996dc4e9b6395895e420e9e1f055b2f5d7be8a6/Images/About%20us.png) ["Find out more" link](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/Find%20out%20more.png)|  An additional link appears on "About us" and "About". This can be followed and successfully loads this: [Image 1](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/About-About%20us%20link.png) |
 | Test 4     | Following the "Contact" option to ensure the link reaches the correct location and that all appropriate links work as expected | Failed - (Defect 3 & Defect 4)   | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/79a10c77cc4e479afcfb62834f624c33ab2a3318/Images/Contact.png) |  No further notes beyond the defect |
 | Test 5     | Following the "home" option to ensure the link reaches the correct location and that all appropriate links work as expected | Pass   | [Gif1](https://github.com/TMoore89/ENSEKTest/blob/aaba7e28f8e71a742906de33e28efecc4294ca9c/Images/Home_button.gif) |  Confirmed to work from all pages with a home option available |
-| Test 6     | Selecting "Buy some energy" and following the process through to completion to ensure I am able to place an order | Failed (Defect 5, Defect 6, Defect 7, Defect 8, Defect 9 & Defect 10)    | [Image1](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/Purchases.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/Order%20Submitted.png) [Image3](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/After%20Order%20Submitted.png) |  Many further tests required, each enery type needs a positive and negative test adding alongside some tests to ensure the values update correctly post-sale, the confirmation page needs a suite of tests adding, the discounts, market status and times all need a test to validate them |
+| Test 6     | Selecting "Buy some energy" and following the process through to completion to ensure I am able to place an order | Failed (Defect 5, Defect 6, Defect 7, Defect 8, Defect 9 & Defect 10)    | [Image1](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/Purchases.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/Order%20Submitted.png) [Image3](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/After%20Order%20Submitted.png) |  Many further tests required, each energy type needs a positive and negative test adding alongside some tests to ensure the values update correctly post-sale, the confirmation page needs a suite of tests adding, the discounts, market status and times all need a test to validate them |
 | Test 7     | Selecting "Sell some energy" and following the process through to completion to ensure I am able to create a sale | Failed (Defect 11)     | [Image1](https://github.com/TMoore89/ENSEKTest/blob/4ade5581ae009169f3c226bb809acc133d533917/Images/Sales.png) |  No further notes beyond the defect |
 
-Defect 1:
+## Defects
+
+### Defect 1:
 <details>
   <summary>The register button does not complete</summary>
 Description:
@@ -89,7 +92,7 @@ at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection ownin
 </details>
   </details>
 
-Defect 2:
+### Defect 2:
   <details>
   <summary>Information links do not route correctly</summary>
 Description:
@@ -114,14 +117,14 @@ Actual Behaviour:
 
 Acceptance Criteria:
 Given I have followed any of the information links ("About", "About us" and "Find out more")
-When I peruse the imformation presented
+When I peruse the information presented
 Then the same information is presented for all 3 pages
 
 Note: 
 - If there are further leaps to the information page as there are currently for About and About us, then this should also function and be identical
     </details>
   
-Defect 3:
+### Defect 3:
   <details>
   <summary>The contact screen loads an image with incorrect spelling</summary>
 Description:
@@ -146,7 +149,7 @@ When I peruse the screen presented
 Then a selection of communication methods are available
   </details>
     
-Defect 4:
+### Defect 4:
   <details>
   <summary>Incorrect contact page header</summary>
 Description:
@@ -171,13 +174,13 @@ When I peruse the screen presented
 Then the header reads "Contact us"
   </details>
 
-Defect 5:
+### Defect 5:
   <details>
   <summary>Oil unit measurement is incorrect</summary>
 Description:
 The unit of measurement is incorrect for oil
 
-User Story: As a customer purhcasing energy I would like to see the measurements in the correct units so that I may make my purchases with no ambuguity on the volumes
+User Story: As a customer purchasing energy I would like to see the measurements in the correct units so that I may make my purchases with no ambiguity on the volumes
 
 Reproduction Steps:
 - Open the homepage
@@ -196,13 +199,13 @@ When I check the prices/volume for oil
 Then the measurement is in cost per litre
   </details>
 
-Defect 6:
+### Defect 6:
   <details>
   <summary>Offers display contradictory figures</summary>
 Description:
 The current offer has a different amount of discount between the image and text
 
-User Story: As a customer purhcasing energy I would like to be able to have the correct percentage discount in both image and text so that I know what I will be spending and can plan accordingly
+User Story: As a customer purchasing energy I would like to be able to have the correct percentage discount in both image and text so that I know what I will be spending and can plan accordingly
   
 Reproduction Steps:
 - Open the homepage
@@ -218,16 +221,16 @@ Actual Behaviour:
 Acceptance Criteria:
 Given I have navigated to the buy energy page
 When I peruse the screen presented
-Then the dicount panel correctly displays a matching amount in both text and on the image
+Then the discount panel correctly displays a matching amount in both text and on the image
   </details>
     
-Defect 7:
+### Defect 7:
   <details>
   <summary>There is no validation the quantity on energy sold</summary>
 Description:
 There is no validation on the quantity of energy sold allowing figures too large to be submitted
 
-User Story: As a customer purhcasing energy I would like to be able to make sure there is validation in place so I cannot purchase more energy than is available
+User Story: As a customer purchasing energy I would like to be able to make sure there is validation in place so I cannot purchase more energy than is available
 
 Reproduction Steps:
 - Open the homepage
@@ -249,13 +252,13 @@ And the available amount is not altered
 And I am presented with a warning/message explaining this
   </details>
   
-Defect 8:
+### Defect 8:
   <details>
   <summary>There is no subtotal and confirmation screen</summary>
 Description:
 There is no subtotal and confirmation before the order is completed to check the values
 
-User Story: As a customer purhcasing energy I would like to be presented with a subtotal and order confrimation so that I may confirm the amount and cost of the energy I'm purchasing and so I can ensure the discounts are applied
+User Story: As a customer purchasing energy I would like to be presented with a subtotal and order confirmation so that I may confirm the amount and cost of the energy I'm purchasing and so I can ensure the discounts are applied
   
 Reproduction Steps:
 - Open the homepage
@@ -287,13 +290,13 @@ Then the order is completed
 And an email is generated confirming the order
   </details>
     
-Defect 9:
+### Defect 9:
   <details>
   <summary>Purchases can be made without being signed in</summary>
 Description:
 There is no requirement for an account holder to be signed in to make a purchase which in turn affects the amount to supply
 
-User Story: As a energy supplier I would like to ensure that all potential purchases are by a user with a valid account so that I can ensure it's delivery and billing is correct
+User Story: As an energy supplier I would like to ensure that all potential purchases are by a user with a valid account so that I can ensure the delivery and billing is correct
 
 Reproduction Steps:
 - Open the homepage
@@ -314,7 +317,7 @@ When I submit my purchase request
 Then I am presented with a sign in request
   </details>
     
-Defect 10:
+### Defect 10:
   <details>
   <summary>Dev tools left visible to the public</summary>
 Description:
@@ -336,11 +339,11 @@ Actual Behaviour:
 Acceptance Criteria:
 Given I have navigated to the buy energy page
 When I peruse the screen presented
-There are no references to using the on screen tools for test purposes
+There are no references to using the on-screen tools for test purposes
 And the reset button is labelled "reset amounts"
   </details>
     
-    Defect 11:
+### Defect 11:
   <details>
   <summary>The sell page does not load</summary>
 Description:
