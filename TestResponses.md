@@ -2,7 +2,7 @@
 
 My test plan would be to investigate usability of the site from the perspective of a potential or current customer, in order to ensure a smooth customer experience and to both minimise and highlight potential risks for both the user, suppliers and ENSEK. In particular I want to ensure the user is able to create a profile, validate their details, then both purchase and sell some volume of energy. There are a number of testing methodologies that could be used here, however given the lack of prior access to the code, expected behaviour or acceptance criteria, this form of black box testing is best suited to user stories to drive functional testing. 
 
-Some experienced based testing is also appropriate however, utilising knowledge of areas that can cause vulnerabilities or increase chance of risk to the end product.
+Some experience based testing is also appropriate however, utilising knowledge of areas that can cause vulnerabilities or increase chance of risk to the end product.
 
 With that in mind, I would outline some key user scenarios:
 
@@ -16,12 +16,14 @@ With that in mind, I would outline some key user scenarios:
 
 Given more time these could be expanded out to bespoke test cases each, such as:
 
-Step 1 - Open page - Register button is available
-Step 2 - Register button is clicked - The page continues to the create account page
-Step 3 - Valid user information is inserted into all fields - The fields all validate and allow entry
-Step 4 - Data is submitted via "Register" - The screen confirms submission and an email is received confirming details
-Step 5 - Email is received - Details within the email are correct and a confirmation link is provided
-Step 6 - Confirmation link is followed - Web page opens confirming registration with correct details and access to the users profile
+| Test step     | Initial action | Expected outcome     |
+| ----------- | ----------- | ----------- | 
+| Step 1 | Open page | Register button is available|
+| Step 2 | Register button is clicked | The page continues to the create account page|
+| Step 3 | Valid user information is inserted into all fields | The fields all validate and allow entry|
+| Step 4 | Data is submitted via "Register" | The screen confirms submission and an email is received confirming details|
+| Step 5 | Email is received | Details within the email are correct and a confirmation link is provided|
+| Step 6 | Confirmation link is followed | Web page opens confirming registration with correct details and access to the users profile|
 
 These can then be used as a basis to expand further and cover negative tests to run alongside the positive tests.
 
@@ -51,6 +53,7 @@ Each of these ad hoc exploratory methods generate further test cases beyond foll
 ### Defect 1:
 <details>
   <summary>The register button does not complete</summary>
+  
 Description:
 The register button does not complete the command and fails to communicate to SQL, presenting the user with an error dump
 
@@ -72,10 +75,10 @@ Actual Behaviour:
 - The user is given an error dump
 
 Acceptance Criteria:
-Given I have completed a registration form
-When I click submit
-Then the details are saved back into the SQL database
-And A confirmation email is sent
+- Given I have completed a registration form
+- When I click submit
+- Then the details are saved back into the SQL database
+- And A confirmation email is sent
 
 Note: 
 - Verified against the registration link inside the "Log in" page
@@ -95,6 +98,7 @@ at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection ownin
 ### Defect 2:
   <details>
   <summary>Information links do not route correctly</summary>
+    
 Description:
 The various links to read more information about the company do not all direct to the same location
 
@@ -116,9 +120,9 @@ Actual Behaviour:
 - Find out more directs to a different location
 
 Acceptance Criteria:
-Given I have followed any of the information links ("About", "About us" and "Find out more")
-When I peruse the information presented
-Then the same information is presented for all 3 pages
+- Given I have followed any of the information links ("About", "About us" and "Find out more")
+- When I peruse the information presented
+- Then the same information is presented for all 3 pages
 
 Note: 
 - If there are further leaps to the information page as there are currently for About and About us, then this should also function and be identical
@@ -127,6 +131,7 @@ Note:
 ### Defect 3:
   <details>
   <summary>The contact screen loads an image with incorrect spelling</summary>
+    
 Description:
 Opening the contact screen presents a misspelt "Erorr" image
 
@@ -144,17 +149,18 @@ Actual Behaviour:
 - An image saying "Erorr" is presented
 
 Acceptance Criteria:
-Given I have navigated to the contact page
-When I peruse the screen presented
-Then a selection of communication methods are available
+- Given I have navigated to the contact page
+- When I peruse the screen presented
+- Then a selection of communication methods are available
   </details>
     
 ### Defect 4:
   <details>
   <summary>Incorrect contact page header</summary>
+    
 Description:
 The header for the "Contact us" page simply reads "Contact."
-
+    
 User Story: As a prospective or existing customer I would like to be able to correctly identify the page I was browsing from the header so that I may easily navigate the site and not be presented with the wrong information
 
 Reproduction Steps:
@@ -168,17 +174,18 @@ Expected Behaviour:
 Actual Behaviour:
 - The header for the page incorrectly displays "Contact."
 
-Acceptance Criteria:
-Given I have navigated to the contact page
-When I peruse the screen presented
-Then the header reads "Contact us"
+Acceptance Criteria:  
+- Given I have navigated to the contact page
+- When I peruse the screen presented
+- Then the header reads "Contact us"
   </details>
 
 ### Defect 5:
   <details>
   <summary>Oil unit measurement is incorrect</summary>
+    
 Description:
-The unit of measurement is incorrect for oil
+The unit of measurement is incorrect for oil in that it represents a plural
 
 User Story: As a customer purchasing energy I would like to see the measurements in the correct units so that I may make my purchases with no ambiguity on the volumes
 
@@ -194,14 +201,15 @@ Actual Behaviour:
 - The measurement is "per Litres"
 
 Acceptance Criteria:
-Given I have navigated to the buy energy page
-When I check the prices/volume for oil
-Then the measurement is in cost per litre
+- Given I have navigated to the buy energy page
+- When I check the prices/volume for oil
+- Then the measurement is in cost per litre
   </details>
 
 ### Defect 6:
   <details>
   <summary>Offers display contradictory figures</summary>
+    
 Description:
 The current offer has a different amount of discount between the image and text
 
@@ -219,14 +227,15 @@ Actual Behaviour:
 - The text and image display different values for the discount
 
 Acceptance Criteria:
-Given I have navigated to the buy energy page
-When I peruse the screen presented
-Then the discount panel correctly displays a matching amount in both text and on the image
+- Given I have navigated to the buy energy page
+- When I peruse the screen presented
+- Then the discount panel correctly displays a matching amount in both text and on the image
   </details>
     
 ### Defect 7:
   <details>
   <summary>There is no validation the quantity on energy sold</summary>
+    
 Description:
 There is no validation on the quantity of energy sold allowing figures too large to be submitted
 
@@ -245,16 +254,17 @@ Actual Behaviour:
 - The negative figure is then represented on the buy energy page once confirmed
 
 Acceptance Criteria:
-Given I have navigated to the buy energy page
-When I purchase a volume of an energy that exceeds the available amount
-Then the submission fails
-And the available amount is not altered
-And I am presented with a warning/message explaining this
+- Given I have navigated to the buy energy page
+- When I purchase a volume of an energy that exceeds the available amount
+- Then the submission fails
+- And the available amount is not altered
+- And I am presented with a warning/message explaining this
   </details>
   
 ### Defect 8:
   <details>
   <summary>There is no subtotal and confirmation screen</summary>
+    
 Description:
 There is no subtotal and confirmation before the order is completed to check the values
 
@@ -275,24 +285,25 @@ Actual Behaviour:
 - The order is placed and immediately processed
 
 Acceptance Criteria:
-Given I have entered an amount of energy to purchase
-And I am signed in as a valid user
-When I submit my purchase request
-Then I am presented with a subtotal screen with breakdown
-And the values are correct
-And there is a button to confirm
+- Given I have entered an amount of energy to purchase
+- And I am signed in as a valid user
+- When I submit my purchase request
+- Then I am presented with a subtotal screen with breakdown
+- And the values are correct
+- And there is a button to confirm
   
-Given I have submitted a purchase
-And I am signed in as a valid user
-And I have checked the subtotal
-When I click on confirm
-Then the order is completed
-And an email is generated confirming the order
+- Given I have submitted a purchase
+- And I am signed in as a valid user
+- And I have checked the subtotal
+- When I click on confirm
+- Then the order is completed
+- And an email is generated confirming the order
   </details>
     
 ### Defect 9:
   <details>
   <summary>Purchases can be made without being signed in</summary>
+    
 Description:
 There is no requirement for an account holder to be signed in to make a purchase which in turn affects the amount to supply
 
@@ -311,15 +322,16 @@ Actual Behaviour:
 - The submission continues 
 
 Acceptance Criteria:
-Given I have entered an amount of energy to purchase
-And I am not signed in as a valid user
-When I submit my purchase request
-Then I am presented with a sign in request
+- Given I have entered an amount of energy to purchase
+- And I am not signed in as a valid user
+- When I submit my purchase request
+- Then I am presented with a sign in request
   </details>
     
 ### Defect 10:
   <details>
   <summary>Dev tools left visible to the public</summary>
+    
 Description:
 The reset button and message regards using it for testing are not to be included in a customer facing site
 
@@ -337,15 +349,16 @@ Actual Behaviour:
 - There is a reset button with a caption that it is intended for test purposes
 
 Acceptance Criteria:
-Given I have navigated to the buy energy page
-When I peruse the screen presented
-There are no references to using the on-screen tools for test purposes
-And the reset button is labelled "reset amounts"
+- Given I have navigated to the buy energy page
+- When I peruse the screen presented
+- There are no references to using the on-screen tools for test purposes
+- And the reset button is labelled "reset amounts"
   </details>
     
 ### Defect 11:
   <details>
   <summary>The sell page does not load</summary>
+    
 Description:
 When opening up the "Sell energy" page it produces an image stating the page is under maintenance
 
@@ -363,14 +376,14 @@ Actual Behaviour:
 - An image saying "Maintenance" is presented
 
 Acceptance Criteria:
-Given I have navigated to the "sell energy" page
-When I peruse the screen presented
-Then a selection of energy types and their current rates are presented
+- Given I have navigated to the "sell energy" page
+- When I peruse the screen presented
+- Then a selection of energy types and their current rates are presented
   </details>
 
 # Question 3:
 ## Identifying tests for automation:
-Whilst this is not a comprehensive list, some reasonable candidates for automation and why include:
+Whilst this is not a comprehensive list, here are some reasonable candidates for automation test cases and why:
 - Register new profile
     - This is a screen where the elements will rarely change thus reducing the amount of maintenance and there are clearly defined rules for each field. As such it is easy to have variables with a large volume of generated values. This will remove a lot of overhead from a manual tester as it can be ensured that the rules for the fields can be complied with and the obvious points of failures checked with ease. It also enables some stress testing of the fields by continually generating longer email addresses/passwords until such point as the field rejects the value (if at all).
 - Log in
@@ -414,6 +427,7 @@ At the time of writing it is impossible to engage with question 4 due to a bug:
 ### Defect 1:
   <details>
   <summary>Unable to open the test application or swagger document</summary>
+    
 Description:
 When following the link for the 4th test activity, the link leads to an unavailalbe service
     
@@ -431,11 +445,10 @@ Actual Behaviour:
 - A message is displayed stating the service is unavailable
 
 Acceptance Criteria:
-Given I have opened the ENSEK remote tester software exercise brief
-When I follow the link for exercise 4
-Then I am presented with a Swagger document
-And I am presented with an API to test
+- Given I have opened the ENSEK remote tester software exercise brief
+- When I follow the link for exercise 4
+- Then I am presented with a Swagger document
+- And I am presented with an API to test
   </details>
-  
   
 [Error image](https://github.com/TMoore89/ENSEKTest/blob/9603127899e766e7361905b951a10ceb70a260e7/Images/Question4.png)
