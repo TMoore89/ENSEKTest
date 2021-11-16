@@ -408,3 +408,34 @@ To identify the elements on screen I utilised the Selenium IDE Chrome plugin, I 
 Note: The rest of the tables locations follow the same pattern, with the relevant row and column numbers replacing the child values.
   
  # Question 4:
+## Unable to complete:
+At the time of writing it is impossible to engage with question 4 due to a bug:
+
+### Defect 1:
+  <details>
+  <summary>Unable to open the test application or swagger document</summary>
+Description:
+When following the link for the 4th test activity, the link leads to an unavailalbe service
+    
+User Story: As a prospective QA employee I would like to be able to open the required activity resources so I am to complete the tasks to a satisfactory or greater standard
+
+Reproduction Steps:
+- Open the test invitation email
+- Open the ENSEK remote tester software exercise brief
+- Attempt to follow the link for activity 4
+
+Expected Behaviour:
+- Access is granted to an API with a Swagger document
+
+Actual Behaviour:
+- A message is displayed stating the service is unavailable
+
+Acceptance Criteria:
+Given I have opened the ENSEK remote tester software exercise brief
+When I follow the link for exercise 4
+Then I am presented with a Swagger document
+And I am presented with an API to test
+  </details>
+  
+  
+[Error image](https://github.com/TMoore89/ENSEKTest/blob/9603127899e766e7361905b951a10ceb70a260e7/Images/Question4.png)
