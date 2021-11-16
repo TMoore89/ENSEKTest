@@ -40,18 +40,10 @@ Question 2:
 | Test 1     | Creating a profile using the "Register" option to ensure a profile is generated with the correctly submitted information       | Failed (Defect 1)      | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-1.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/d4a7bad70524b70ed43b06d25b394efdad454fc7/Images/Test1-2.png) | Email Validation is in place and working for correct name@dom.ain, password validation is also active for both presence and 6 digit length and matching, complexity is also present - more test cases needed for next run. Defect also confirmed from the registration option held on the "Log in" page |
 | Test 2      | Signing in using the "Log in" option to ensure the user profile can be accessed and is accurate | Blocked  | Test 1 failing prevents this form proceeding futher |  The ASP.NET login methods linked would need investigating in further test runs |
 | Test 3     | Following the "Find out more", "about" and "about us" options to ensure the link reaches the correct location with relevant information | Failed (Defect 2)     | ["About" link](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/About.png) ["About us" link](https://github.com/TMoore89/ENSEKTest/blob/1996dc4e9b6395895e420e9e1f055b2f5d7be8a6/Images/About%20us.png) ["Find out more" link](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/Find%20out%20more.png)|  An additional link appears on "About us" and "About". This can be followed and successfully loads this: [Image 1](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/About-About%20us%20link.png) |
-| Test 4     | Following the "Contact" option to ensure the link reaches the correct location and that all appropriate links work as expected | Failed - (Defect 3)   | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/79a10c77cc4e479afcfb62834f624c33ab2a3318/Images/Contact.png) |  No further notes beyond the defect |
-| Test 5     | Following the "home" option to ensure the link reaches the correct location and that all appropriate links work as expected | Pass   | Evidence |  Further notes/Exploratory findings |
-| Test 6     | Selecting "Buy some energy" and following the process through to completion to ensure I am able to place an order | Outcome     | Evidence |  Further notes/Exploratory findings |
+| Test 4     | Following the "Contact" option to ensure the link reaches the correct location and that all appropriate links work as expected | Failed - (Defect 3 & Defect 4)   | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/79a10c77cc4e479afcfb62834f624c33ab2a3318/Images/Contact.png) |  No further notes beyond the defect |
+| Test 5     | Following the "home" option to ensure the link reaches the correct location and that all appropriate links work as expected | Pass   | [Gif1] (https://github.com/TMoore89/ENSEKTest/blob/aaba7e28f8e71a742906de33e28efecc4294ca9c/Images/Home_button.gif) |  Confirmed to work from all pages with a home option available |
+| Test 6     | Selecting "Buy some energy" and following the process through to completion to ensure I am able to place an order | Failed (Defect 5, Defect 6, Defect 7, Defect 8, Defect 9 & Defect 10)    | [Image1](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/Purchases.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/Order%20Submitted.png) [Image3](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/After%20Order%20Submitted.png) |  Many further tests required, each enery type needs a positive and negative test adding alongside some tests to ensure the values update correctly post-sale, the confirmation page needs a suite of tests adding, the discounts, market status and times all need a test to validate them |
 | Test 7     | Selecting "Sell some energy" and following the process through to completion to ensure I am able to create a sale | Outcome     | Evidence |  Further notes/Exploratory findings |
-
-- Test 1  - Creating a profile using the "Register" option to ensure a profile is generated with the correctly submitted information - Failed (Defect 1)
-- Test 2 - Signing in using the "Log in" option to ensure the user profile can be accessed and is accurate
-- Test 3 - Following the "Find out more", "about" and "about us" options to ensure the link reaches the correct location with relevant information
-- Test 4 - Following the "Contact" option to ensure the link reaches the correct location and that all appropriate links work as expected
-- Test 5 - Following the "home" option to ensure the link reaches the correct location and that all appropriate links work as expected
-- Test 6 - Selecting "Buy some energy" and following the process through to completion to ensure I am able to place an order
-- Test 7 - Selecting "Sell some energy" and following the process through to completion to ensure I am able to create a sale
 
 Defect 1:
 Description:
@@ -135,7 +127,7 @@ Reproduction Steps:
 - Peruse the opened page
 
 Expected Behaviour:
-- various contact methods are presentend and accessible
+- Various contact methods are presented and accessible
 
 Actual Behaviour:
 - An image saying "Erorr" is presented
@@ -145,5 +137,137 @@ Given I have navigated to the contact page
 When I peruse the screen presented
 Then A selection of communication methods are available
 
-Note: 
-- If there are further leaps to the information page as there are currently for About and About us, then this should also function and be identical.
+Defect 4:
+Description:
+The header for the "Contact us" page simply reads "Contact."
+
+User Story: As a prospective or existing ENSEK customer I would like to be able to correctly identify the page I was browsing from the header so that I may easily navigate the site and not be presented with the wrong information
+
+Reproduction Steps:
+- Open the homepage
+- Click on the contacts page
+- Peruse the opened page
+
+Expected Behaviour:
+- The header for the page correctly displays "Contact us"
+
+Actual Behaviour:
+- The header for the page incorrectly displays "Contact."
+
+Acceptance Criteria:
+Given I have navigated to the contact page
+When I peruse the screen presented
+Then the header reads "Contact us"
+
+Defect 5:
+Description:
+The unit of measurement is incorrect for oil
+
+User Story: As a customer purhcasing energy I would like to see the measurements in the correct units so that I may make my purchases with no ambuguity on the volumes
+
+Reproduction Steps:
+- Open the homepage
+- Click on the buy energy page
+- Peruse the oil purchase line
+
+Expected Behaviour:
+- The measurement is "Per litre"
+
+Actual Behaviour:
+- The measurement is "per Litres"
+
+Acceptance Criteria:
+Given I have navigated to the buy energy page
+When I check the prices/volume for oil
+Then the measurement is in cost per litre
+
+Defect 6:
+Description:
+The current offer has a different amount between the image and text
+
+User Story: As a customer purhcasing energy I would like to be able to have the correct percentage discount in both image and text so that I know what I will be spending and cna plan accordingly
+  
+Reproduction Steps:
+- Open the homepage
+- Click on the buy energy page
+- Peruse the available discount
+
+Expected Behaviour:
+- The text and image display the same discount or reduction
+
+Actual Behaviour:
+- The text and image display different values for the discount
+
+Acceptance Criteria:
+Given I have navigated to the buy energy page
+When I peruse the screen presented
+Then the dicount panel correctly displays a matching amount in both text and on the image
+  
+Defect 7:
+Description:
+There is no validation on the quantity of energy sold
+
+User Story: As a customer purhcasing energy I would like to be able to make sure there is validation in place so I cannot purchase more energy than is available
+
+Reproduction Steps:
+- Open the homepage
+- Click on the buy energy page
+- Attempt to purchase an amount of energy greater than is available for each energy type
+
+Expected Behaviour:
+- There is a warning noting that the number exceeds available volume and the purchase is prevented
+
+Actual Behaviour:
+- The purchase continues and sets the available amount into a negative figure
+- The negative figure is then represented on the buy energy page once confirmed
+
+Acceptance Criteria:
+Given I have navigated to the buy energy page
+When I purchase a volume of an energy that exceeds the available amount
+Then the submission fails
+And the available amount is not altered
+And I am presented with a warning/message explaining this
+  
+Defect 8:
+Description:
+There is no subtotal and confirmation before the order is completed
+
+User Story: As a customer purhcasing energy I would like to be presented with a subtotal and order confrimation so that I may confirm the amount and cost of the energy I'm purchasing and so I can ensure the discounts are applied
+  
+Reproduction Steps:
+- Open the homepage
+- Click on the contacts page
+- Peruse the opened page
+
+Expected Behaviour:
+- The header for the page correctly displays "Contact us"
+
+Actual Behaviour:
+- The header for the page incorrectly displays "Contact."
+
+Acceptance Criteria:
+Given I have navigated to the contact page
+When I peruse the screen presented
+Then the header reads "Contact us"
+  
+Defect 5:
+Description:
+The header for the "Contact us" page simply reads "Contact."
+
+User Story: As a prospective or existing ENSEK customer I would like to be able to correctly identify the page I was irom the header so that I may easily navigate the site and not be presented with the wrong information
+
+Reproduction Steps:
+- Open the homepage
+- Click on the contacts page
+- Peruse the opened page
+
+Expected Behaviour:
+- The header for the page correctly displays "Contact us"
+
+Actual Behaviour:
+- The header for the page incorrectly displays "Contact."
+
+Acceptance Criteria:
+Given I have navigated to the contact page
+When I peruse the screen presented
+Then the header reads "Contact us"
