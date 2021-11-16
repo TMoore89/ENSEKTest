@@ -367,3 +367,16 @@ Given I have navigated to the "sell energy" page
 When I peruse the screen presented
 Then a selection of energy types and their current rates are presented
   </details>
+
+# Question 3:
+## Identifying tests for automation:
+Whilst this is not a comprehensive list, some reasonable candidates for automation and why include:
+- Register new profile
+    - This is a screen where the elements will rarely change thus reducing the amount of maintenance and there are clearly defined rules for each field. As such it is easy to have variables with a large volume of generated values. This will remove a lot of overhead from a manual tester as it can be ensured that the rules for the fields can be complied with and the obvious points of failures checked with ease. It also enables some stress testing of the fields by continually generating longer email addresses/passwords until such point as the field rejects the value (if at all).
+- Log in
+    - Much as with the new profile generation, these are elements that rarely change and as such it would be easy to ensure there pre-defined values that can be quickly and efficiently checked against the database for existing users. It can also be used to confirm negative test behaviour and also could be adapted for some load testing to simulate a large volume of users signing in simultaneously.
+- Placing an order
+    - There are a large range of strings that can be used here to test various combinations of entries into the various energy values both simultaneously or independently, both for positive outcomes but also to ensure that the validation on the fields is acting as expected. This is a process that may take a manual tester a long time to check all the combinations of boundaries for validation against the various combinations of populated fields, so there is a lot of scope for increased efficiency.
+- Ensuring the links on the pages navigate to the intended place
+    - Inevitably there are a lot of links on each page, ensuring that every link works is a basic task that can be time consuming to keep travelling to/from pages and check the address. This task is well suited to automation as it would remove the bulk of the strain and effort from the manual testers in a regression situation, allowing them to focus on the more complex or exploratory aspects.
+  
