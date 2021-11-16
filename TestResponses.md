@@ -1,6 +1,6 @@
 # Question 1:
 
-My test plan would be to investigate usability of the site from the perspective of a potential or current customer, in order to ensure a smooth customer experience and to both minimise and highlight potential risks to the user experience. In particular I want to ensure the user is able to create a profile, validate their details, then both purchase and sell some volume of energy. There are a number of testing methodologies that could be used here, however given the lack of prior access to the code, expected behaviour or acceptance criteria, this black box testing is best suited to user stories to drive functional testing. 
+My test plan would be to investigate usability of the site from the perspective of a potential or current customer, in order to ensure a smooth customer experience and to both minimise and highlight potential risks for both the user, suppliers and ENSEK. In particular I want to ensure the user is able to create a profile, validate their details, then both purchase and sell some volume of energy. There are a number of testing methodologies that could be used here, however given the lack of prior access to the code, expected behaviour or acceptance criteria, this form of black box testing is best suited to user stories to drive functional testing. 
 
 Some experienced based testing is also appropriate however, utilising knowledge of areas that can cause vulnerabilities or increase chance of risk to the end product.
 
