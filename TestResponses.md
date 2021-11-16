@@ -382,19 +382,29 @@ Whilst this is not a comprehensive list, some reasonable candidates for automati
   
 ## Elements, locators and tools
   
-To identify the elements on screen I utilised the Selenium IDE Chrome plugin, again this is an example but not a comprehensive list utilising the most appropriate :
+To identify the elements on screen I utilised the Selenium IDE Chrome plugin, I was also able to find the details via the chrome developer console and also some of the values via Accessibility Insights for Windows. The below again is an example but not a comprehensive list utilising the most appropriate target type, although I am aware others are available:
   
-| On screen element     | Locators |
-| ----------- | ----------- | 
-| Number of units required - Gas     | id=energyType_AmountPurchased      |
-  | Number of units required - Nuclear     | Locator      |
-  | Number of units required - Electricity   | Locator      |
-  | Number of units required - Oil     | Locator      |
-  | Element     | Locator      |
-  | Element     | Locator      |
-  | Element     | Locator      |
-  | Element     | Locator      |
-  | Element     | Locator      |
-  | Element     | Locator      |
-  | Element     | Locator      |
+  | On screen element     | Locator |
+  | ----------- | ----------- | 
+  | Number of units required - Gas     | id=energyType_AmountPurchased      |
+  | Number of units required - Nuclear     | css=tr:nth-child(2)#energyType_AmountPurchased      |
+  | Number of units required - Electricity   | css=tr:nth-child(3)#energyType_AmountPurchased      |
+  | Number of units required - Oil     | css=tr:nth-child(4)#energyType_AmountPurchased      |
+  | Buy (any)     | name=Buy      |
+  | Reset    | name=Reset      |
+  | Remaining volumes - Gas     | css=tr:nth-child(1) > td:nth-child(5)     |
+  | Remaining volumes - Nuclear     | css=tr:nth-child(2) > td:nth-child(5)      |
+  | Remaining volumes - electricity    | css=tr:nth-child(3) > td:nth-child(5)      |
+  | Remaining volumes - Oil     | css=tr:nth-child(4) > td:nth-child(5)      |
+  | Discount text    | css=h3      |
+  | Discount image    | css=.well > img      |
+  | Back to homepage    | linkText=Back to Homepage      |
+  | Home    | linktext=Home      |
+  | About    | linktext=About      |
+  | Contact    | linktext=Contact      |
+  | Register    | id=registerlink      |
+  | Log in    | id=loginlink      |
   
+Note: The rest of the tables locations follow the same pattern, with the relevant row and column numbers replacing the child values.
+  
+ # Question 4:
