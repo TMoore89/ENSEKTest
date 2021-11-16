@@ -1,6 +1,6 @@
 Question 1:
 
-My test plan would be to investigate usability of the site from the perspective of a potential or current customer, in order to ensure a smooth customer experience and to both minimise and highlight potential risks to the user experience. There are a number of testing methodologies that could be used here, however given the lack of prior access to the code, expected behaviour or acceptance criteria, this black box testing is best suited to user stories to drive functional testing. 
+My test plan would be to investigate usability of the site from the perspective of a potential or current customer, in order to ensure a smooth customer experience and to both minimise and highlight potential risks to the user experience. In particular I want to ensure the user is able to create a profile, validate their details, then both purchase and sell some volume of energy. There are a number of testing methodologies that could be used here, however given the lack of prior access to the code, expected behaviour or acceptance criteria, this black box testing is best suited to user stories to drive functional testing. 
 
 Some experienced based testing is also appropriate however, utilising knowledge of areas that can cause vulnerabilities or increase chance of risk to the end product.
 
@@ -41,11 +41,13 @@ Question 2:
 | Test 2      | Signing in using the "Log in" option to ensure the user profile can be accessed and is accurate | Blocked  | Test 1 failing prevents this form proceeding futher |  The ASP.NET login methods linked would need investigating in further test runs |
 | Test 3     | Following the "Find out more", "about" and "about us" options to ensure the link reaches the correct location with relevant information | Failed (Defect 2)     | ["About" link](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/About.png) ["About us" link](https://github.com/TMoore89/ENSEKTest/blob/1996dc4e9b6395895e420e9e1f055b2f5d7be8a6/Images/About%20us.png) ["Find out more" link](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/Find%20out%20more.png)|  An additional link appears on "About us" and "About". This can be followed and successfully loads this: [Image 1](https://github.com/TMoore89/ENSEKTest/blob/803d7b04b4efdadd34f4c82bf668097d4c1fc193/Images/About-About%20us%20link.png) |
 | Test 4     | Following the "Contact" option to ensure the link reaches the correct location and that all appropriate links work as expected | Failed - (Defect 3 & Defect 4)   | [Image 1](https://github.com/TMoore89/ENSEKTest/blob/79a10c77cc4e479afcfb62834f624c33ab2a3318/Images/Contact.png) |  No further notes beyond the defect |
-| Test 5     | Following the "home" option to ensure the link reaches the correct location and that all appropriate links work as expected | Pass   | [Gif1] (https://github.com/TMoore89/ENSEKTest/blob/aaba7e28f8e71a742906de33e28efecc4294ca9c/Images/Home_button.gif) |  Confirmed to work from all pages with a home option available |
+| Test 5     | Following the "home" option to ensure the link reaches the correct location and that all appropriate links work as expected | Pass   | [Gif1](https://github.com/TMoore89/ENSEKTest/blob/aaba7e28f8e71a742906de33e28efecc4294ca9c/Images/Home_button.gif) |  Confirmed to work from all pages with a home option available |
 | Test 6     | Selecting "Buy some energy" and following the process through to completion to ensure I am able to place an order | Failed (Defect 5, Defect 6, Defect 7, Defect 8, Defect 9 & Defect 10)    | [Image1](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/Purchases.png) [Image2](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/Order%20Submitted.png) [Image3](https://github.com/TMoore89/ENSEKTest/blob/9371d08b4c92e33ad3434a096865e90a025009d0/Images/After%20Order%20Submitted.png) |  Many further tests required, each enery type needs a positive and negative test adding alongside some tests to ensure the values update correctly post-sale, the confirmation page needs a suite of tests adding, the discounts, market status and times all need a test to validate them |
-| Test 7     | Selecting "Sell some energy" and following the process through to completion to ensure I am able to create a sale | Outcome     | Evidence |  Further notes/Exploratory findings |
+| Test 7     | Selecting "Sell some energy" and following the process through to completion to ensure I am able to create a sale | Failed (Defect 11)     | [Image1](https://github.com/TMoore89/ENSEKTest/blob/4ade5581ae009169f3c226bb809acc133d533917/Images/Sales.png) |  No further notes beyond the defect |
 
 Defect 1:
+<details>
+  <summary>The register button does not complete</summary>
 Description:
 The register button does not complete the command and fails to communicate to SQL, presenting the user with an error dump
 
@@ -85,8 +87,11 @@ at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection ownin
   ```
  
 </details>
+  </details>
 
 Defect 2:
+  <details>
+  <summary>Information links do not route correctly</summary>
 Description:
 The various links to read more information about the company do not all direct to the same location
 
@@ -114,12 +119,15 @@ Then the same information is presented for all 3 pages
 
 Note: 
 - If there are further leaps to the information page as there are currently for About and About us, then this should also function and be identical
+    </details>
   
 Defect 3:
+  <details>
+  <summary>The contact screen loads an image with incorrect spelling</summary>
 Description:
 Opening the contact screen presents a misspelt "Erorr" image
 
-User Story: As a prospective or existing ENSEK customer I would like to be able to contact the company from the contacts page so that I may raise any relevant queries
+User Story: As a prospective or existing customer I would like to be able to contact the company from the contacts page so that I may raise any relevant queries
 
 Reproduction Steps:
 - Open the homepage
@@ -135,9 +143,12 @@ Actual Behaviour:
 Acceptance Criteria:
 Given I have navigated to the contact page
 When I peruse the screen presented
-Then A selection of communication methods are available
-
+Then a selection of communication methods are available
+  </details>
+    
 Defect 4:
+  <details>
+  <summary>Incorrect contact page header</summary>
 Description:
 The header for the "Contact us" page simply reads "Contact."
 
@@ -158,8 +169,11 @@ Acceptance Criteria:
 Given I have navigated to the contact page
 When I peruse the screen presented
 Then the header reads "Contact us"
+  </details>
 
 Defect 5:
+  <details>
+  <summary>Oil unit measurement is incorrect</summary>
 Description:
 The unit of measurement is incorrect for oil
 
@@ -180,8 +194,11 @@ Acceptance Criteria:
 Given I have navigated to the buy energy page
 When I check the prices/volume for oil
 Then the measurement is in cost per litre
+  </details>
 
 Defect 6:
+  <details>
+  <summary>Offers display contradictory figures</summary>
 Description:
 The current offer has a different amount of discount between the image and text
 
@@ -202,10 +219,13 @@ Acceptance Criteria:
 Given I have navigated to the buy energy page
 When I peruse the screen presented
 Then the dicount panel correctly displays a matching amount in both text and on the image
-  
+  </details>
+    
 Defect 7:
+  <details>
+  <summary>There is no validation the quantity on energy sold</summary>
 Description:
-There is no validation on the quantity of energy sold
+There is no validation on the quantity of energy sold allowing figures too large to be submitted
 
 User Story: As a customer purhcasing energy I would like to be able to make sure there is validation in place so I cannot purchase more energy than is available
 
@@ -227,10 +247,13 @@ When I purchase a volume of an energy that exceeds the available amount
 Then the submission fails
 And the available amount is not altered
 And I am presented with a warning/message explaining this
+  </details>
   
 Defect 8:
+  <details>
+  <summary>There is no subtotal and confirmation screen</summary>
 Description:
-There is no subtotal and confirmation before the order is completed
+There is no subtotal and confirmation before the order is completed to check the values
 
 User Story: As a customer purhcasing energy I would like to be presented with a subtotal and order confrimation so that I may confirm the amount and cost of the energy I'm purchasing and so I can ensure the discounts are applied
   
@@ -262,10 +285,13 @@ And I have checked the subtotal
 When I click on confirm
 Then the order is completed
 And an email is generated confirming the order
-  
+  </details>
+    
 Defect 9:
+  <details>
+  <summary>Purchases can be made without being signed in</summary>
 Description:
-There is no requirement for an account holder to be signed in to make a purchase
+There is no requirement for an account holder to be signed in to make a purchase which in turn affects the amount to supply
 
 User Story: As a energy supplier I would like to ensure that all potential purchases are by a user with a valid account so that I can ensure it's delivery and billing is correct
 
@@ -286,8 +312,11 @@ Given I have entered an amount of energy to purchase
 And I am not signed in as a valid user
 When I submit my purchase request
 Then I am presented with a sign in request
-  
+  </details>
+    
 Defect 10:
+  <details>
+  <summary>Dev tools left visible to the public</summary>
 Description:
 The reset button and message regards using it for testing are not to be included in a customer facing site
 
@@ -309,3 +338,29 @@ Given I have navigated to the buy energy page
 When I peruse the screen presented
 There are no references to using the on screen tools for test purposes
 And the reset button is labelled "reset amounts"
+  </details>
+    
+    Defect 11:
+  <details>
+  <summary>The sell page does not load</summary>
+Description:
+When opening up the "Sell energy" page it produces an image stating the page is under maintenance
+
+User Story: As a prospective or existing customer I would like to be able to load the "Sell energy" page so that I may both check the current rates and also to place sales if appropriate
+
+Reproduction Steps:
+- Open the homepage
+- Click on the "Sell energy" page
+- Peruse the opened page
+
+Expected Behaviour:
+- Various energy types are available to sell with given rates
+
+Actual Behaviour:
+- An image saying "Maintenance" is presented
+
+Acceptance Criteria:
+Given I have navigated to the "sell energy" page
+When I peruse the screen presented
+Then a selection of energy types and their current rates are presented
+  </details>
