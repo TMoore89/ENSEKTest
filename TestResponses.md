@@ -380,3 +380,21 @@ Whilst this is not a comprehensive list, some reasonable candidates for automati
 - Ensuring the links on the pages navigate to the intended place
     - Inevitably there are a lot of links on each page, ensuring that every link works is a basic task that can be time consuming to keep travelling to/from pages and check the address. This task is well suited to automation as it would remove the bulk of the strain and effort from the manual testers in a regression situation, allowing them to focus on the more complex or exploratory aspects.
   
+## Elements, locators and tools
+  
+To identify the elements on screen I utilised the Selenium IDE Chrome plugin, again this is an example but not a comprehensive list utilising the most appropriate :
+  
+| On screen element     | Locators |
+| ----------- | ----------- | 
+| Number of units required - Gas     | id=energyType_AmountPurchased      |
+  | Number of units required - Nuclear     | Locator      |
+  | Number of units required - Electricity   | Locator      |
+  | Number of units required - Oil     | Locator      |
+  | Element     | Locator      |
+  | Element     | Locator      |
+  | Element     | Locator      |
+  | Element     | Locator      |
+  | Element     | Locator      |
+  | Element     | Locator      |
+  | Element     | Locator      |
+  
